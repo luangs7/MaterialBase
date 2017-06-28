@@ -9,14 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".parallax.Parallax1Activity">
+        <activity android:name=".parallax.Parallax1Activity" />
+        <activity android:name=".parallax.Parallax2Activity" />
+        <activity android:name=".OptionsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".parallax.Parallax2Activity"></activity>
+        <activity android:name=".menunavigator.MenuMaterialActivity" />
+        <activity android:name=".tablayout.TabsActivity" />
+        <activity android:name=".bottomnavigation.BottomNavigationActivity"></activity>
     </application>
 
 </manifest>
