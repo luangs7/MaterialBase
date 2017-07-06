@@ -10,7 +10,7 @@ import android.widget.Button;
 
 import br.com.luan.materialbase.bottomnavigation.BottomNavigationActivity;
 import br.com.luan.materialbase.bottomsheet.BottomSheetActivity;
-import br.com.luan.materialbase.menunavigator.MenuMaterialActivity;
+import br.com.luan.materialbase.menunavigator.MenuMaterialAnimationActivity;
 import br.com.luan.materialbase.parallax.Parallax1Activity;
 import br.com.luan.materialbase.tablayout.TabsActivity;
 
@@ -35,7 +35,7 @@ public class OptionsActivity extends AppCompatActivity implements View.OnClickLi
         if (view.getId() == R.id.parallax) {
             mStartActivity(new Parallax1Activity());
         } else if (view.getId() == R.id.navigator) {
-            mStartActivity(new MenuMaterialActivity());
+            mStartActivity(new MenuMaterialAnimationActivity());
         }else if (view.getId() == R.id.tabs) {
             mStartActivity(new TabsActivity());
         }else if (view.getId() == R.id.bottom) {

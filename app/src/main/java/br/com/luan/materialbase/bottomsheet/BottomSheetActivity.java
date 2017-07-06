@@ -104,6 +104,7 @@ public class BottomSheetActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void hideOption() {
+
         mToolbar.setVisibility(View.GONE);
     }
 

@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".menunavigator.MenuMaterialActivity" />
+        <activity android:name=".menunavigator.MenuMaterialAnimationActivity" />
         <activity android:name=".tablayout.TabsActivity" />
         <activity android:name=".bottomnavigation.BottomNavigationActivity" />
         <activity android:name=".bottomsheet.BottomSheetActivity"></activity>
