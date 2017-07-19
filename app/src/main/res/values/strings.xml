@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MaterialBase</string>
+    <string name="app_name">Material Base</string>
     <string name="title_activity_main">Android ObservableScrollView</string>
     <string name="title_activity_about">About this app</string>
 

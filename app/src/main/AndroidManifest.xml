@@ -22,7 +22,9 @@
         <activity android:name=".menunavigator.MenuMaterialAnimationActivity" />
         <activity android:name=".tablayout.TabsActivity" />
         <activity android:name=".bottomnavigation.BottomNavigationActivity" />
-        <activity android:name=".bottomsheet.BottomSheetActivity"></activity>
+        <activity android:name=".bottomsheet.BottomSheetActivity" />
+        <activity android:name=".CollapseTollbar.CollapsingToolbarActivity" />
+        <activity android:name=".viewpager.CircleIndicatorActivity"></activity>
     </application>
 
 </manifest>

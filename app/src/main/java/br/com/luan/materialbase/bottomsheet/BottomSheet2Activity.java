@@ -12,6 +12,8 @@ import android.widget.Button;
 
 import br.com.luan.materialbase.R;
 
+import static br.com.luan.materialbase.bottomsheet.BottomSheetActivity.setMargins;
+
 public class BottomSheet2Activity extends AppCompatActivity implements View.OnClickListener {
     protected Button button1;
     protected Button button2;
@@ -56,8 +58,10 @@ public class BottomSheet2Activity extends AppCompatActivity implements View.OnCl
             @Override
             public void onStateChanged(View bottomSheet, int newState) {
                 if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    mBottomSheetBehavior.setPeekHeight(100);
-                }
+                    mBottomSheetBehavior.setPeekHeight(200);
+
+                }else
+                    setMargins(bottomSheet,0,0,0,0);
             }
 
             @Override
@@ -67,5 +71,7 @@ public class BottomSheet2Activity extends AppCompatActivity implements View.OnCl
 
 
     }
+
+
 
 }

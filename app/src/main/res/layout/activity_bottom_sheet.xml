@@ -37,14 +37,16 @@
         android:layout_height="match_parent"
         android:clipToPadding="true"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
-        android:background="@android:color/holo_orange_light">
+        >
             <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
             >
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
-                    android:background="#c2c3c4"
+                    android:background="@android:color/transparent"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"

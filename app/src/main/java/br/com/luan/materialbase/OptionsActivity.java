@@ -8,11 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 import br.com.luan.materialbase.bottomnavigation.BottomNavigationActivity;
 import br.com.luan.materialbase.bottomsheet.BottomSheetActivity;
 import br.com.luan.materialbase.menunavigator.MenuMaterialAnimationActivity;
 import br.com.luan.materialbase.parallax.Parallax1Activity;
-import br.com.luan.materialbase.tablayout.TabsActivity;
+import br.com.luan.materialbase.viewpager.CircleIndicatorActivity;
 
 public class OptionsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,12 +42,15 @@ public class OptionsActivity extends AppCompatActivity implements View.OnClickLi
         } else if (view.getId() == R.id.navigator) {
             mStartActivity(new MenuMaterialAnimationActivity());
         }else if (view.getId() == R.id.tabs) {
-            mStartActivity(new TabsActivity());
+            mStartActivity(new  CircleIndicatorActivity());
         }else if (view.getId() == R.id.bottom) {
             mStartActivity(new BottomNavigationActivity());
         }else if (view.getId() == R.id.bottomsheet) {
             mStartActivity(new BottomSheetActivity());
         }
+//        else if (view.getId() == R.id.print) {
+//            print();
+//        }
     }
 
     private void initView() {
@@ -64,5 +72,26 @@ public class OptionsActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = new Intent(getBaseContext(),mActivity.getClass());
         startActivity(intent,
                 ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+    }
+
+
+    public void print(){
+        try
+        {
+            Socket sock = new Socket("192.168.1.222", 9100);
+            PrintWriter oStream = new PrintWriter(sock.getOutputStream());
+            oStream.println("HI,test from Android Device");
+            oStream.println("\n\n\n");
+            oStream.close();
+            sock.close();
+        }
+        catch (UnknownHostException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import br.com.luan.materialbase.R;
@@ -43,6 +44,10 @@ public class BottomSheetActivity extends AppCompatActivity implements View.OnCli
         button1 = (Button) findViewById(R.id.button_1);
         button1.setOnClickListener(BottomSheetActivity.this);
 
+//        BottomSheetDialogFragment bottomSheetDialogFragment = new MyBottomSheetDialogFragment();
+//        bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+
+
         bottomSheet = (NestedScrollView) findViewById(R.id.bottom_sheet);
         mainContent = (CoordinatorLayout) findViewById(R.id.main_content);
 
@@ -58,14 +63,15 @@ public class BottomSheetActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onStateChanged(View bottomSheet, int newState) {
                 if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    mBottomSheetBehavior.setPeekHeight(100);
+                    mBottomSheetBehavior.setPeekHeight(200);
+                    bottomSheet.setBackgroundColor(getResources().getColor(android.R.color.transparent));
                     hideOption();
                 }
 
                 if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+                    bottomSheet.setBackgroundColor(getResources().getColor(android.R.color.white));
                     showOption();
-                }else
-                    hideOption();
+                }
 
             }
 
@@ -113,4 +119,13 @@ public class BottomSheetActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+
+    public static void setMargins (View v, int l, int t, int r, int b) {
+        if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+            p.setMargins(l, t, r, b);
+            v.requestLayout();
+            v.setLayoutParams(p);
+        }
+    }
 }

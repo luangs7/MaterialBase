@@ -2,6 +2,7 @@ package br.com.luan.materialbase.parallax;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,19 +10,28 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import br.com.luan.materialbase.R;
 
 public class Parallax1Activity extends AppCompatActivity {
 
+    protected ImageView expandedImage;
+    protected Toolbar toolbar;
+    protected CollapsingToolbarLayout toolbarLayout;
+    protected AppBarLayout appBar;
+    protected FloatingActionButton fab;
     private Menu menu;
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        final Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
+        super.setContentView(R.layout.activity_main);
+
+        initView();
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,13 +54,16 @@ public class Parallax1Activity extends AppCompatActivity {
                 }
                 if (scrollRange + verticalOffset == 0) {
                     isShow = true;
+                    toolbarLayout.setTitle("Material Toolbar");
                     showOption(R.id.action_info);
                 } else if (isShow) {
                     isShow = false;
+                    toolbarLayout.setTitle(" ");
                     hideOption(R.id.action_info);
                 }
             }
         });
+
     }
 
     @Override
@@ -87,5 +100,14 @@ public class Parallax1Activity extends AppCompatActivity {
     private void showOption(int id) {
         MenuItem item = menu.findItem(id);
         item.setVisible(true);
+    }
+
+    private void initView() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        expandedImage = (ImageView) findViewById(R.id.expandedImage);
+        toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        appBar = (AppBarLayout) findViewById(R.id.app_bar);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
     }
 }
